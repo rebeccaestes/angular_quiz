@@ -13,7 +13,13 @@
 Instantiate a new Angular module called `BlogPost` that takes `ui.router` as a dependency. Use Angular code style conventions.
 
 **Your answer:**
-```js
+```
+(function() {
+  angular
+  .module("grumblr", [
+  "ui.router"
+  ]);
+})();
 
 ```
 
@@ -30,7 +36,7 @@ Which *one* of the following buttons would *not* be displayed?
 ```html
 [ ] A: <button data-ng-if="status">Click</button>
 [ ] B: <button data-ng-show="status">Click</button>
-[ ] C: <button data-ng-hide="status">Click</button>
+ X  C: <button data-ng-hide="status">Click</button>
 [ ] D: <button>{{status}}</button>
 ```
 
@@ -45,7 +51,7 @@ One button below has an `ng-click` attribute; the other has `data-ng-click` inst
 
 **Your answer:**
 
-> ...
+> An HTML validator will raise an error for the first button. The data prefix of the second one prevents this from happening.
 
 ## Question 4
 
@@ -53,7 +59,7 @@ Which of the following demonstrates the best usage of `ng-app`? **Explain your a
 
 **Your answer:**
 
-> ...
+> A. ng-app designates the app's root elements, and should be included in or near that element. Generally this means it is within the `<html>` or `<body>` tags.
 
 ### A:
 ```html
@@ -106,7 +112,7 @@ Which one of the following concepts does this best illustrate?
 ```
 [ ] A: Modularity
 [ ] B: MVC
-[ ] C: Two-way data-binding
+ X  C: Two-way data-binding
 [ ] D: Separation of concerns
 ```
 
@@ -116,7 +122,7 @@ What is an IIFE, and why might you use it?
 
 **Your answer:**
 
-> ...
+> An IIFE is an immediately-invoked function expression. As an expression, it's wrapped in parentheses, but it's immediately invoked by the pair of parentheses that follows it. It's useful because it prevents this also prevents any of its declared variables from "escaping" the local scope into the global; in Angular, we wrap all our modules within an IIFE.
 
 ## Question 7
 
@@ -124,7 +130,7 @@ What is the `ui-sref` directive, and how is it used?
 
 **Your answer:**
 
-> ...
+> sref stands for "state reference" (as opposed to hypertext reference). ui-sref creates a link to the state that follows it, e.g.: `<a data-ui-sref=itemShow({id: 1})>
 
 ## Question 8
 
@@ -132,7 +138,7 @@ One of the lines of code in the following snippet will throw an error. Which one
 
 **Your answer:**
 
-> ...
+> Line 3 - "use strict" requires that each variable is explictly declared with the var prefix. You'd need to write `for(var i = 1 ...) to fix it.
 
 ```js
 /*1*/ "use strict";
@@ -152,6 +158,11 @@ Custom directives can be embedded in HTML four different ways. Demonstrate **two
 **Your answer:**
 ```html
 
+<!-- Class-restricted directive: -->
+<div class="my-directive"> </div>
+<!-- Element-restricted directive: -->
+<my-directive> </my-directive>
+
 ```
 
 ## Question 10
@@ -160,7 +171,8 @@ Of the three following options, which is the most "correct" way of organizing th
 
 **Your answer:**
 
-> ...
+> B is the best option. The most common convention is to organize files by the model they're referring to, rather than the kind of file (controller vs directive vs view). Both A and C, to different extents, organize their files according to kind.
+
 
 
 ### A:
